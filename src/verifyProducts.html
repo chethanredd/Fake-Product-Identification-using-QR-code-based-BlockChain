@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Fake Product Identification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-sm navbar-light bg-light">
+			<div class="container">
+			  <a class="navbar-brand" href="#">Fake Product Identification</a>
+			  <div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+				  <li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="manufacturer.html">Manufacturer</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="seller.html">Seller</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="consumer.html">Consumer</a>
+				  </li>
+				</ul>
+			  </div>
+			</div>
+		  </nav>
+    <!-- END nav -->
+	
+	<section>
+        <div class="container">
+            <h2>Verify Products</h2>
+              
+			<section>
+				<div class="container-fluid">
+					<center>
+						<div id="qr-reader" style="width:300px"></div>
+						<div id="qr-reader-results"></div>
+					</center>
+				</div>
+			</section>
+			  
+              <div class="form-group">
+				<label for="productSN">Product SN:</label>
+                <input disabled type="text" class="form-control" id="productSN" placeholder="Enter Product SN" name="productSN">
+                
+				<label for="consumerCode">Consumer Code</label>
+                <input type="text" class="form-control" id="consumerCode" placeholder="Enter Consumer Code" name="consumerCode">
+              </div>
+              
+              <button type="submit" class="btn btn-warning btn-register" id="register">Get Product Status</button>
+          </div>
+    </section>
+
+
+	<br/>
+    <section>
+        <div class="container">
+            <h2>Is the product sold to cunsumer is fake or not?</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Verification Result</th>
+                    </tr>
+                </thead>
+                <tbody id="logdata">
+
+                </tbody>
+            </table>
+            <center><p>Your address is <b id="add"></b></p></center>
+        </div>
+    </section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/web3.min.js"></script>
+	<script src="js/truffle-contract.js"></script>
+	<script src="js/verifyProduct.js"></script>
+	<script src="https://unpkg.com/html5-qrcode"></script>
+	<script>
+	var decodedText = "Enter Product SN";
+    function docReady(fn) {
+        // see if DOM is already available
+        if (document.readyState === "complete"
+            || document.readyState === "interactive") {
+            // call on next available tick
+            setTimeout(fn, 1);
+        } else {
+            document.addEventListener("DOMContentLoaded", fn);
+        }
+    }
+
+    docReady(function () {
+        var resultContainer = document.getElementById('qr-reader-results');
+        var lastResult, countResults = 0;
+        function onScanSuccess(decodedText, decodedResult) {
+            if (decodedText !== lastResult) {
+                ++countResults;
+                lastResult = decodedText;
+                // Handle on success condition with the decoded message.
+                var audio = new Audio('beep.wav');
+                audio.play();
+                // console.log(`Scan result ${decodedText}`, decodedResult);
+                document.getElementById('qr-reader-results').innerHTML=decodedText;
+				document.getElementById("productSN").value = decodedText;
+				//App.init(decodedText);
+                
+            }
+        }
+
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess);
+    });
+  </script>
+  <footer class="footer-content bg-dark text-light mt-5">
+	<div class="container">
+	  <div class="row">
+		<div class="col-lg-6">
+		  <div class="contact">
+			<h5>Contact Us</h5>
+			<p>Email: your@email.com</p>
+			<p>Phone: +1 (123) 456-7890</p>
+		  </div>
+		</div>
+		<div class="col-lg-6">
+		  <div class="social-media">
+			<h5>Follow Us</h5>
+			<a href="www.facebook.com" class="fa fa-facebook fa-2x mr-3"></a>
+			<a href="www.twitter.com" class="fa fa-twitter fa-2x mr-3"></a>
+			<a href="www.facebook.com" class="fa fa-instagram fa-2x"></a>
+		  </div>
+		</div>
+	  </div>
+	  <hr />
+	  <div class="row">
+		<div class="col-lg-12 text-center">
+		  <p>&copy; 2024 Fake Product Identification</p>
+		</div>
+	  </div>
+	</div>
+  </footer>
+  </body>
+</html>
+
+
+
+

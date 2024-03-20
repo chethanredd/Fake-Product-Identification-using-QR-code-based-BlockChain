@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Fake Product Identification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-sm navbar-light bg-light">
+			<div class="container">
+			  <a class="navbar-brand" href="#">Fake Product Identification</a>
+			  <div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Home</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="manufacturer.html">Manufacturer</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="seller.html">Seller</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="consumer.html">Consumer</a>
+					  </li>
+				</ul>
+			  </div>
+			</div>
+		  </nav>
+    <!-- END nav -->
+	
+	<section>
+        <div class="container">
+            <h2>Consumer Product History</h2>
+       
+              <div class="form-group">
+                <label for="consumerCode">Consumer Code</label>
+                <input type="text" class="form-control" id="consumerCode" placeholder="Enter Consumer Code" name="consumerCode">
+              </div>
+              
+              <button type="submit" class="btn btn-warning btn-register" id="register">Get Products</button>
+          </div>
+    </section>
+
+
+	</section>
+    <section>
+        <div class="container">
+            <h2>Products purchased by consumer</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product SN</th>
+                        <th>Seller Code</th>
+                        <th>Manufacturer Code</th>
+                    </tr>
+                </thead>
+                <tbody id="logdata">
+
+                </tbody>
+            </table>
+            <center><p>Your address is <b id="add"></b></p></center>
+        </div>
+    </section>
+	<footer class="footer-content bg-dark text-light mt-5">
+		<div class="container">
+		  <div class="row">
+			<div class="col-lg-6">
+			  <div class="contact">
+				<h5>Contact Us</h5>
+				<p>Email: your@email.com</p>
+				<p>Phone: +1 (123) 456-7890</p>
+			  </div>
+			</div>
+			<div class="col-lg-6">
+			  <div class="social-media">
+				<h5>Follow Us</h5>
+				<a href="www.facebook.com" class="fa fa-facebook fa-2x mr-3"></a>
+				<a href="www.twitter.com" class="fa fa-twitter fa-2x mr-3"></a>
+				<a href="www.facebook.com" class="fa fa-instagram fa-2x"></a>
+			  </div>
+			</div>
+		  </div>
+		  <hr />
+		  <div class="row">
+			<div class="col-lg-12 text-center">
+			  <p>&copy; 2024 Fake Product Identification</p>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/consumerPurchaseHistory.js"></script>
+  </body>
+</html>
+
+
+
+
